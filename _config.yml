@@ -1,1 +1,13 @@
+title: bunch_of coders;
+email: contact@bunchofcoders.com
+#description: >- # this means to ignore newlines until "baseurl:"
+#  Place to find some fun/useful projects in ROS, C++.
+baseurl: "/basic_bocbot" # the subpath of your site, e.g. /blog
+url: "https://bunchofcoders.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+github_username: bunchofcoders
+
 theme: jekyll-theme-slate
+
+github:
+  repository_url: "https://github.com/bunchofcoders/basic_bocbot.git"
