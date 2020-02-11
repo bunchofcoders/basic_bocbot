@@ -1,4 +1,4 @@
-<video src="videos/chasing_ball.webm" width="800" height="480" controls preload></video>
+<video src="videos/chasing_ball.webm" controls preload></video>
 
 Step-by-step developer guide to build a robot using [ROS 2](https://index.ros.org/doc/ros2/) (eloquent) and [Gazebo](http://gazebosim.org/). 
 
