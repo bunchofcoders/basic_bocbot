@@ -1,5 +1,3 @@
-# Build Robot using Robot Operating System (ROS 2) and Gazebo Simulator
-
 <video src="videos/chasing_ball.webm" width="800" height="480" controls preload></video>
 
 Step-by-step developer guide to build a robot using [ROS 2](https://index.ros.org/doc/ros2/) (eloquent) and [Gazebo](http://gazebosim.org/). 
