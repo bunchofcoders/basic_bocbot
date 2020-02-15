@@ -2051,83 +2051,83 @@ add_custom_target(media_files ALL DEPENDS ${urdf_files})
 ``` 
 Also we need to tell build process to install our `urdf`, `worlds` and `meshes` directories to `install` folder. As all your packages are served to ROS environment from your install directory that will be created when we build our package. Following lines in CMakeLists.txt will do that. 
 
-```cmake
-install(DIRECTORY worlds  
-  DESTINATION share/${PROJECT_NAME})
-
-install(DIRECTORY urdf
-  DESTINATION share/${PROJECT_NAME})
-
-install(DIRECTORY meshes
-  DESTINATION share/${PROJECT_NAME})
-
 ```
-You can copy entire CMakeLists.txt from below
+   install(DIRECTORY worlds  
+     DESTINATION share/${PROJECT_NAME})
 
-<details>
-<summary>CMakeLists.txt (click to expand)</summary>
+   install(DIRECTORY urdf
+     DESTINATION share/${PROJECT_NAME})
 
-```
-cmake_minimum_required(VERSION 3.5)
-project(bocbot)
+   install(DIRECTORY meshes
+     DESTINATION share/${PROJECT_NAME})
 
-# Default to C99
-if(NOT CMAKE_C_STANDARD)
-  set(CMAKE_C_STANDARD 99)
-endif()
+   ```
+   You can copy entire CMakeLists.txt from below
 
-# Default to C++14
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
-endif()
+   <details>
+   <summary>CMakeLists.txt (click to expand)</summary>
 
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
-endif()
+   ```
+   cmake_minimum_required(VERSION 3.5)
+   project(bocbot)
 
-# find dependencies
-find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+   # Default to C99
+   if(NOT CMAKE_C_STANDARD)
+     set(CMAKE_C_STANDARD 99)
+   endif()
 
-# Generate .urdf files from .urdf.xacro files
-find_package(xacro REQUIRED)
-# Xacro files
-file(GLOB xacro_files urdf/*.urdf.xacro)
+   # Default to C++14
+   if(NOT CMAKE_CXX_STANDARD)
+     set(CMAKE_CXX_STANDARD 14)
+   endif()
 
-foreach(it ${xacro_files})
-  # remove .xacro extension
-  string(REGEX MATCH "(.*)[.]xacro$" unused ${it})
-  set(output_filename ${CMAKE_MATCH_1})
+   if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+     add_compile_options(-Wall -Wextra -Wpedantic)
+   endif()
 
-  # create a rule to generate ${output_filename} from {it}
-  xacro_add_xacro_file(${it} ${output_filename})
+   # find dependencies
+   find_package(ament_cmake REQUIRED)
+   # uncomment the following section in order to fill in
+   # further dependencies manually.
+   # find_package(<dependency> REQUIRED)
 
-  list(APPEND urdf_files ${output_filename})
-endforeach(it)
+   # Generate .urdf files from .urdf.xacro files
+   find_package(xacro REQUIRED)
+   # Xacro files
+   file(GLOB xacro_files urdf/*.urdf.xacro)
 
-# add an abstract target to actually trigger the builds
-add_custom_target(media_files ALL DEPENDS ${urdf_files})
+   foreach(it ${xacro_files})
+     # remove .xacro extension
+     string(REGEX MATCH "(.*)[.]xacro$" unused ${it})
+     set(output_filename ${CMAKE_MATCH_1})
 
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # uncomment the line when a copyright and license is not present in all source files
-  #set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # uncomment the line when this package is not in a git repo
-  #set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
-endif()
+     # create a rule to generate ${output_filename} from {it}
+     xacro_add_xacro_file(${it} ${output_filename})
 
-install(DIRECTORY worlds  
-  DESTINATION share/${PROJECT_NAME})
+     list(APPEND urdf_files ${output_filename})
+   endforeach(it)
 
-install(DIRECTORY urdf
-  DESTINATION share/${PROJECT_NAME})
+   # add an abstract target to actually trigger the builds
+   add_custom_target(media_files ALL DEPENDS ${urdf_files})
 
-ament_package()
+   if(BUILD_TESTING)
+     find_package(ament_lint_auto REQUIRED)
+     # the following line skips the linter which checks for copyrights
+     # uncomment the line when a copyright and license is not present in all source files
+     #set(ament_cmake_copyright_FOUND TRUE)
+     # the following line skips cpplint (only works in a git repo)
+     # uncomment the line when this package is not in a git repo
+     #set(ament_cmake_cpplint_FOUND TRUE)
+     ament_lint_auto_find_test_dependencies()
+   endif()
+
+   install(DIRECTORY worlds  
+     DESTINATION share/${PROJECT_NAME})
+
+   install(DIRECTORY urdf
+     DESTINATION share/${PROJECT_NAME})
+
+   ament_package()
 
 ```
 </details>
@@ -2224,7 +2224,7 @@ def generate_launch_description():
 
 Add following line to `CMakeLists.txt` to install our launch folder after build.
 
-```cmake
+```
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME})
 ```
