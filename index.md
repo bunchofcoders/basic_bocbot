@@ -2067,7 +2067,7 @@ You can copy entire CMakeLists.txt from below
 <details>
 <summary>CMakeLists.txt (click to expand)</summary>
 
-```cmake
+```
 cmake_minimum_required(VERSION 3.5)
 project(bocbot)
 
