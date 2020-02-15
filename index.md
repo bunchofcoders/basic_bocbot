@@ -2051,7 +2051,7 @@ add_custom_target(media_files ALL DEPENDS ${urdf_files})
 ``` 
 Also we need to tell build process to install our `urdf`, `worlds` and `meshes` directories to `install` folder. As all your packages are served to ROS environment from your install directory that will be created when we build our package. Following lines in CMakeLists.txt will do that. 
 
-```
+   ```cmake
    install(DIRECTORY worlds  
      DESTINATION share/${PROJECT_NAME})
 
@@ -2064,10 +2064,7 @@ Also we need to tell build process to install our `urdf`, `worlds` and `meshes` 
    ```
    You can copy entire CMakeLists.txt from below
 
-   <details>
-   <summary>CMakeLists.txt (click to expand)</summary>
-
-   ```
+   ```cmake
    cmake_minimum_required(VERSION 3.5)
    project(bocbot)
 
@@ -2129,8 +2126,7 @@ Also we need to tell build process to install our `urdf`, `worlds` and `meshes` 
 
    ament_package()
 
-```
-</details>
+   ```
 
 At this point you should be able to build your package. If you are using new terminal, make sure to source ros environment.
 
@@ -2165,10 +2161,6 @@ In launch file we are going to do two things.
 2. call spawn_entity service provided by gazebo to spawn our robot defined in `bocbot.urdf` in the world.
 
 Paste following code to `world.launch.py` it's self-explanatory.
-
-<details>
-
-<summary><I>world.launch.py (click to expand)</I></summary>
 
 ```python
 
@@ -2220,7 +2212,6 @@ def generate_launch_description():
     ])
 
   ```
-</details>
 
 Add following line to `CMakeLists.txt` to install our launch folder after build.
 
