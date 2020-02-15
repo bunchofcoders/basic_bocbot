@@ -9,5 +9,9 @@ github_username: bunchofcoders
 
 theme: jekyll-theme-slate
 
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+  
 github:
   repository_url: "https://github.com/bunchofcoders/basic_bocbot.git"
