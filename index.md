@@ -217,7 +217,10 @@ Paste following code in `boc_office.world` that contains description of objects 
 
 
 <details>
-<summary><I>boc_office.world (click to expand)</I></summary>
+   
+<summary>
+   <I>boc_office.world (click to expand)</I>
+</summary>
 
 ```xml
 <sdf version='1.6'>
@@ -1597,7 +1600,10 @@ Create directory for urdf files.
 Paste following code to `bocbot.gazebo` file
 
 <details>
-<summary><I>bocbot.gazebo (click to expand)</I></summary>
+   
+<summary>
+   <I>bocbot.gazebo (click to expand)</I>
+</summary>
 
 ```xml
 <?xml version="1.0"?>
@@ -1732,7 +1738,10 @@ We will now define robot description in `bocbot.urdf.xacro` file.
 Paste following code to `bocbot.urdf.xacro` file
 
 <details>
-<summary><I>bocbot.urdf.xacro (click to expand)</I></summary>
+   
+<summary>
+   <I>bocbot.urdf.xacro (click to expand)</I>
+</summary>
 
 ```xml
 <?xml version='1.0'?>
